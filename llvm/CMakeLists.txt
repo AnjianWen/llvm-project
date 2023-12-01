@@ -2,6 +2,10 @@
 
 cmake_minimum_required(VERSION 3.20.0)
 
+#SET(CMAKE_C_COMPILER "/usr/local/bin/gcc")
+#SET(CMAKE_CXX_COMPILER "/usr/local/bin/g++")
+#SET(CMAKE_CXX_FLAGS "-std=c++11 -O3 -Wl,-rpath,/usr/local/lib64")
+
 set(LLVM_COMMON_CMAKE_UTILS ${CMAKE_CURRENT_SOURCE_DIR}/../cmake)
 include(${LLVM_COMMON_CMAKE_UTILS}/Modules/CMakePolicy.cmake
   NO_POLICY_SCOPE)
@@ -459,6 +463,7 @@ set(LLVM_ALL_TARGETS
   WebAssembly
   X86
   XCore
+  RISCW
   )
 
 set(LLVM_ALL_EXPERIMENTAL_TARGETS
