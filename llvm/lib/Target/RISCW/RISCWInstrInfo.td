@@ -50,4 +50,8 @@ let isReturn = 1, isBarrier = 1, isTerminator = 1 in
 def PseudoRET : Pseudo<(outs), (ins), [(riscw_ret)]>,
                 PseudoInstExpansion<(JALR X0, X1, 0)>;
 
-def : InstAlias<"ret",                   (JALR      X0,      X1, 0), 4>;
+def : InstAlias<"ret", (JALR X0, X1, 0), 4>;
+
+def LUI : RWInstU<OPC_LUI, (outs GPR:$rd), (ins i32imm:$imm20),
+                  "lui", "$rd, $imm20">, Sched<[WriteIALU]>;
+
